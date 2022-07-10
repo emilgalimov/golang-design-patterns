@@ -2,6 +2,12 @@ package main
 
 import "math/rand"
 
+type offerComponent interface {
+	ID() int
+	Price() int
+	IncreasePricePercent(int)
+}
+
 type OfferComposite struct {
 	id       int
 	children map[int]offerComponent
