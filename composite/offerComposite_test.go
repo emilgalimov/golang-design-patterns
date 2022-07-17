@@ -17,6 +17,8 @@ func TestOfferComposite_AddsAndReturnsAndRemovesChildren(t *testing.T) {
 	offer := NewOfferComposite()
 
 	mc := minimock.NewController(t)
+	defer mc.Finish()
+
 	component1 := NewComponentMock(mc).IDMock.Return(1)
 	component2 := NewComponentMock(mc).IDMock.Return(2)
 
@@ -34,6 +36,7 @@ func TestOfferComposite_Price(t *testing.T) {
 	offer := NewOfferComposite()
 
 	mc := minimock.NewController(t)
+	defer mc.Finish()
 
 	component1 := NewComponentMock(mc).IDMock.Return(1)
 	component1.PriceMock.Return(10)
@@ -51,6 +54,7 @@ func TestOfferComposite_IncreasePricePercent(t *testing.T) {
 	offer := NewOfferComposite()
 
 	mc := minimock.NewController(t)
+	defer mc.Finish()
 
 	component1 := NewComponentMock(mc).IDMock.Return(1)
 	component1.IncreasePricePercentMock.Expect(8)

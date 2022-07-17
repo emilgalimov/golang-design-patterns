@@ -11,6 +11,7 @@ func TestEmployeeStatisticContext_Create(t *testing.T) {
 	employee := NewEmployee(10, 3)
 
 	mc := minimock.NewController(t)
+	defer mc.Finish()
 	strategy := NewSalaryStrategyMock(mc)
 
 	statisticContext := NewEmployeeStatisticContext(
@@ -27,6 +28,7 @@ func TestEmployeeStatisticContext_CallsSalaryStrategy(t *testing.T) {
 	employee := NewEmployee(10, 3)
 
 	mc := minimock.NewController(t)
+	defer mc.Finish()
 	strategy := NewSalaryStrategyMock(mc).countSalaryMock.Expect(employee).Return(123)
 
 	statisticContext := NewEmployeeStatisticContext(
@@ -41,6 +43,7 @@ func TestEmployeeStatisticContext_AverageTimePerTask(t *testing.T) {
 	employee := NewEmployee(15, 3)
 
 	mc := minimock.NewController(t)
+	defer mc.Finish()
 	strategy := NewSalaryStrategyMock(mc)
 
 	statisticContext := NewEmployeeStatisticContext(
