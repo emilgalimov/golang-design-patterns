@@ -1,4 +1,4 @@
-package abstractFactory
+package telephoneFactory
 
 import (
 	"github.com/emilgalimov/golang-design-patterns/abstractFactory/landlinePhone"

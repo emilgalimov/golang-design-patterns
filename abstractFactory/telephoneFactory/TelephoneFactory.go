@@ -1,27 +1,16 @@
-package abstractFactory
+package telephoneFactory
 
 import (
 	"github.com/emilgalimov/golang-design-patterns/abstractFactory/Errors"
 	"github.com/emilgalimov/golang-design-patterns/abstractFactory/landlinePhone"
 	"github.com/emilgalimov/golang-design-patterns/abstractFactory/mobilePhone"
+	"github.com/emilgalimov/golang-design-patterns/abstractFactory/phoneInterfaces"
 )
 
-type Source interface {
-	GetRaw() string
-}
-
-type Processor interface {
-	ProcessRaw(rawMessage string) string
-}
-
-type Printer interface {
-	Print(message string) string
-}
-
 type PhoneFactory interface {
-	createSource() Source
-	createProcessor() Processor
-	createPrinter() Printer
+	CreateSource() phoneInterfaces.Source
+	CreateProcessor() phoneInterfaces.Processor
+	CreatePrinter() phoneInterfaces.Printer
 }
 
 const (
